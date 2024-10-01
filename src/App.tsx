@@ -1,14 +1,16 @@
-import { ChangeEvent } from "react";
-import Input from "./components/Input";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Main from './pages/Main'; // Página Main com RGB
 
 function App() {
   return (
-    <div>
-      {/* <Input label={""} value={0} onChange={function (e: ChangeEvent<HTMLInputElement>): void {
-        throw new Error("Function not implemented.");
-      } }>
-        </Input> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/Main" element={<Main />} /> {/* Rota para página Main */}
+        {/* Adicionar mais se precisar */}
+        {/* <Route path="/another" element={<AnotherPage />} /> */}
+      </Routes>
+    </Router>
   );
 }
 
