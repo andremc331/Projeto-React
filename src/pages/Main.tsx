@@ -43,7 +43,7 @@ const Box = styled.div`
   width: 700px;
   height: 200px;
   margin: 20px 0;
-  border: 1px solid #000;
+  border-radius: 20px;
 `;
 
 const InputWrapper = styled.div`
