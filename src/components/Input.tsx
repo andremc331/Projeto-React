@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface InputProps {
   label: string;
   value: number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputProps> = ({ label, value, onChange }) => {
+const Input: React.FC<InputProps> = ({ label, value, onChange, onKeyDown }) => {
   return (
     <div>
       <label>{label}</label>
-      <input 
-        type="number" 
-        value={value} 
-        onChange={onChange} 
-        min="0" 
-        max="255" 
-        style={{ margin: '5px' }} 
+      <input
+        type="number"
+        value={value}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        min="0"
+        max="255"
       />
     </div>
   );
