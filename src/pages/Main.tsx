@@ -1,20 +1,23 @@
-import React from 'react';
-import { useColor } from '../hooks/Hooks';
-import styled from 'styled-components';
-import Input from '../components/Input';
-import { saveColor } from '../services/Api';
+import React from "react";
+import { useColor } from "../hooks/Hooks";
+import styled from "styled-components";
+import Input from "../components/Input";
+import { saveColor } from "../services/Api";
 
 const Main: React.FC = () => {
   const { color, setColor } = useColor();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, colorType: keyof typeof color) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    colorType: keyof typeof color
+  ) => {
     let value = Number(e.target.value);
     value = Math.min(Math.max(value, 0), 255); // Garante que o valor esteja entre 0 e 255
-    setColor(prev => ({ ...prev, [colorType]: value }));
+    setColor((prev) => ({ ...prev, [colorType]: value }));
   };
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' || e.key === 'Tab') {
+    if (e.key === "Enter" || e.key === "Tab") {
       await saveColor(color);
     }
   };
